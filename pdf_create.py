@@ -12,7 +12,7 @@ import os
 
 def create_pdf(data):
    
-    file_name = os.path.join(data['save_path'], f"arbetsorder_{data['id']}.pdf")
+    file_name = os.path.join(data['save_path'], f"arbetsorder_{data['date']}.pdf")
     
     # A5-format (148.5 x 210 mm)
     c = canvas.Canvas(file_name, pagesize=A5)

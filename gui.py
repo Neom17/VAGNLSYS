@@ -25,6 +25,8 @@ def button_create_clicked():
     date = date_entry.get().strip()
     description = description_text.get("1.0", "end-1c").strip()
 
+    
+
     #Checks if id box is empty, and if date box is empty prompts user with ask box.
     if not id:
         print("Skriv in ett order nummer!")
