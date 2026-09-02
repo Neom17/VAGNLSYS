@@ -46,8 +46,14 @@ def button_create_clicked():
 
     try:
         pc.create_pdf(data)
-    except:
-        messagebox.showerror("FEL", "Problem uppstod vid PDF-generering")
+    except PermissionError:
+        messagebox.showerror("Åtkomst nekad", "Kunde inte spara PDF-filen.")
+        return
+    except OSError as e:
+        messagebox.showerror("Filfel", f"Ett systemfel uppstod vid sparandet:\n{e}")
+        return
+    except Exception as e:
+        messagebox.showerror("Oväntat fel", f"Ett oväntat fel uppstod:\n{e}")
         return
 
     #Resets the input boxes for next session
@@ -75,8 +81,8 @@ todays_date = datetime.datetime.now(tz=tz).strftime(ft)
 #Menu
 filemenu = tk.Menu(menu, tearoff=0)
 menu.add_cascade(label="Filer", menu=filemenu)
-filemenu.add_command(label="New")
-filemenu.add_separator()
+#filemenu.add_command(label="New")
+#filemenu.add_separator()
 filemenu.add_command(label="Exit", command=root.quit)
 
 settings = tk.Menu(menu, tearoff=0)
@@ -84,9 +90,9 @@ menu.add_cascade(label="Inställningar", menu=settings)
 settings.add_command(label="Spara till", command= button_save_to_clicked)
 
 
-helpmenu = tk.Menu(menu, tearoff=0)
-menu.add_cascade(label="Hjälp", menu=helpmenu)
-helpmenu.add_command(label="Om")
+#helpmenu = tk.Menu(menu, tearoff=0)
+#menu.add_cascade(label="Hjälp", menu=helpmenu)
+#helpmenu.add_command(label="Om")
 
 
 
