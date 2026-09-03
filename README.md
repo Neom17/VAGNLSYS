@@ -5,3 +5,5 @@ Programmet är gjort för att underlätta att skapa order beskrivning som man ka
 VAGNLSYS är under utvecklig och buggar kan förekomma. 
 
 Utveckligen görst på en ARCH baserad os, windows exe filer compileras på en windows server vm med hjälp av PyInstaller.
+
+OBS att det inte finns någon färdig compilerad exe fil som fungerar efter gårdagens uppdatering 
